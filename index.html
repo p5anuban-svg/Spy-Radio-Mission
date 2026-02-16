@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micro:bit Spy Radio Mission - ภารกิจส่งข้อความลับ</title>
+    <meta name="description" content="ภารกิจส่งข้อความลับด้วย Micro:bit - เข้ารหัสข้อความเป็นตัวเลขเพื่อส่งผ่านวิทยุ">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="background-gradient"></div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" />
+                        <circle cx="7" cy="7" r="1" fill="currentColor" />
+                        <circle cx="12" cy="7" r="1" fill="currentColor" />
+                        <circle cx="17" cy="7" r="1" fill="currentColor" />
+                        <circle cx="7" cy="12" r="1" fill="currentColor" />
+                        <circle cx="12" cy="12" r="1" fill="currentColor" />
+                        <circle cx="17" cy="12" r="1" fill="currentColor" />
+                        <circle cx="7" cy="17" r="1" fill="currentColor" />
+                        <circle cx="12" cy="17" r="1" fill="currentColor" />
+                        <circle cx="17" cy="17" r="1" fill="currentColor" />
+                    </svg>
+                </div>
+                <h1>Micro:bit Spy Radio Mission</h1>
+            </div>
+            <p class="subtitle">ภารกิจส่งข้อความลับ | Secret Message Encoder</p>
+        </header>
+
+        <div class="converter-grid">
+            <!-- Letter to Number Converter -->
+            <div class="converter-card">
+                <div class="card-header">
+                    <h2>
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                        เข้ารหัสข้อความ | Encode Message
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <label for="letterInput">ข้อความลับ | Secret Message (A-Z or _)</label>
+                        <div class="input-with-toggle">
+                            <input type="password" id="letterInput" placeholder="เช่น HELLO" autocomplete="off"
+                                spellcheck="false">
+                            <button type="button" class="toggle-visibility" id="toggleLetterVisibility"
+                                aria-label="แสดง/ซ่อนตัวอักษร">
+                                <svg class="eye-open" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 5C7 5 2.73 8.11 1 12.5 2.73 16.89 7 20 12 20s9.27-3.11 11-7.5C21.27 8.11 17 5 12 5zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
+                                        fill="currentColor" />
+                                </svg>
+                                <svg class="eye-closed" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"
+                                        fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="difficulty-selector">
+                            <label>ระดับความยาก | Difficulty Level:</label>
+                            <div class="difficulty-options">
+                                <label class="difficulty-option">
+                                    <input type="radio" name="difficulty" value="easy" checked>
+                                    <span>ง่าย | Easy (ไม่มี * | No *)</span>
+                                </label>
+                                <label class="difficulty-option">
+                                    <input type="radio" name="difficulty" value="medium">
+                                    <span>ปานกลาง | Medium (30%)</span>
+                                </label>
+                                <label class="difficulty-option">
+                                    <input type="radio" name="difficulty" value="hard">
+                                    <span>ยาก | Hard (60%)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="output-group">
+                        <label>รหัสลับ | Secret Code</label>
+                        <div id="letterOutput" class="output-display">
+                            <div class="placeholder-text">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                พิมพ์ข้อความลับเพื่อเข้ารหัส | Type secret message to encode
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reference Table -->
+            <div class="reference-card">
+                <div class="card-header">
+                    <h2>
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2" />
+                            <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2" />
+                            <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2" />
+                            <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        ตารางรหัสลับ | Secret Code Table
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <div class="table-wrapper">
+                        <table class="reference-table" id="referenceTable">
+                            <thead>
+                                <tr>
+                                    <th>แถว / หลัก</th>
+                                    <th>หลัก 1</th>
+                                    <th>หลัก 2</th>
+                                    <th>หลัก 3</th>
+                                    <th>หลัก 4</th>
+                                    <th>หลัก 5</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>แถว 1</th>
+                                    <td data-row="1" data-col="1">A</td>
+                                    <td data-row="1" data-col="2">B</td>
+                                    <td data-row="1" data-col="3">C</td>
+                                    <td data-row="1" data-col="4">D</td>
+                                    <td data-row="1" data-col="5">E</td>
+                                </tr>
+                                <tr>
+                                    <th>แถว 2</th>
+                                    <td data-row="2" data-col="1">F</td>
+                                    <td data-row="2" data-col="2">G</td>
+                                    <td data-row="2" data-col="3">H</td>
+                                    <td data-row="2" data-col="4">I</td>
+                                    <td data-row="2" data-col="5">K</td>
+                                </tr>
+                                <tr>
+                                    <th>แถว 3</th>
+                                    <td data-row="3" data-col="1">L</td>
+                                    <td data-row="3" data-col="2">M</td>
+                                    <td data-row="3" data-col="3">N</td>
+                                    <td data-row="3" data-col="4">O</td>
+                                    <td data-row="3" data-col="5">P</td>
+                                </tr>
+                                <tr>
+                                    <th>แถว 4</th>
+                                    <td data-row="4" data-col="1">R</td>
+                                    <td data-row="4" data-col="2">S</td>
+                                    <td data-row="4" data-col="3">T</td>
+                                    <td data-row="4" data-col="4">U</td>
+                                    <td data-row="4" data-col="5">V</td>
+                                </tr>
+                                <tr>
+                                    <th>แถว 5</th>
+                                    <td data-row="5" data-col="1">W</td>
+                                    <td data-row="5" data-col="2">X</td>
+                                    <td data-row="5" data-col="3">Y</td>
+                                    <td data-row="5" data-col="4">Z</td>
+                                    <td data-row="5" data-col="5">␣</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="table-note">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                            <span>
+                                <strong>␣</strong> = Spacebar (เว้นวรรค) | Used for spaces between words
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>สร้างด้วย ❤️ สำหรับการเรียนรู้ Micro:bit</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

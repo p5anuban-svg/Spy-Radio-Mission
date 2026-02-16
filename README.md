@@ -13,7 +13,7 @@ A secret message encoder for Micro:bit - Convert letters to numbers for radio tr
 
 - **Difficulty Levels** | ระดับความยาก
   - **Easy** | ง่าย: No masking (55)
-  - **Medium** | ปานกลาง: 30% random digit masking (5* or *5)
+  - **Medium** | ปานกลาง: 30% random digit masking (5*or*5)
   - **Hard** | ยาก: 60% random digit masking
 
 - **Spy Mode Features** | ฟีเจอร์โหมดสายลับ
@@ -29,6 +29,7 @@ A secret message encoder for Micro:bit - Convert letters to numbers for radio tr
 ## 🚀 Quick Start | เริ่มต้นใช้งาน
 
 1. Clone this repository
+
    ```bash
    git clone https://github.com/YOUR_USERNAME/microbit-spy-radio-mission.git
    ```
@@ -60,6 +61,7 @@ A secret message encoder for Micro:bit - Convert letters to numbers for radio tr
 ## 🎓 Educational Use | การใช้งานในห้องเรียน
 
 Perfect for:
+
 - Teaching coordinate systems
 - Introduction to encryption
 - Micro:bit programming projects
@@ -67,6 +69,7 @@ Perfect for:
 - STEM education
 
 เหมาะสำหรับ:
+
 - สอนระบบพิกัด
 - แนะนำการเข้ารหัส
 - โปรเจค Micro:bit
@@ -97,19 +100,5 @@ Perfect for:
   4  R  S  T  U  V
   5  W  X  Y  Z  ␣
 ```
-
-## 📝 License | ลิขสิทธิ์
-
-MIT License - Feel free to use for educational purposes
-
-## 🤝 Contributing | การมีส่วนร่วม
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## � Contact | ติดต่อ
-
-Created with ❤️ for Micro:bit Learning
-
----
 
 **Note**: This is an educational tool designed for classroom use with BBC Micro:bit devices.

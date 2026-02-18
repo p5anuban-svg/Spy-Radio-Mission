@@ -131,7 +131,7 @@ letterInput.addEventListener('input', (e) => {
         const result = numbers.join('-');
 
         letterOutput.innerHTML = `
-            <div style="font-size: 1.5rem; color: var(--primary-500); font-weight: 700; text-align: center; padding: var(--spacing-lg);">
+            <div style="font-size: 3.5rem; color: var(--primary-500); font-weight: 700; text-align: center; padding: var(--spacing-lg);">
                 ${result}
             </div>
         `;
